@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+
+import '../../../routes/app_pages.dart';
+import '../providers/login_provider.dart';
+
+class LoginController extends GetxController with StateMixin {
+  late GetStorage box;
+  late TextEditingController myControllerEmail;
+  late TextEditingController myControllerPassword;
+  final isPasswordHidden = true.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    box = GetStorage();
+    change(null, status: RxStatus.empty());
+    myControllerEmail = TextEditingController();
+    myControllerPassword = TextEditingController();
+    print(box.read(Routes.REGISTER_TOKEN));
+  }
+
+  Future<void> userLogin(String email, String password) async {
+    change(null, status: RxStatus.loading());
+    LoginProvider().login(email, password).then(
+      (resp) => {
+        change(null, status: RxStatus.success()),
+        if (box.read(Routes.REGISTER_TOKEN) != null)
+          {Get.offAllNamed(Routes.REGISTER_NEXT, arguments: 'login')}
+        else
+          {
+            box.write(Routes.TOKEN, resp.data?.token),
+            box.write(Routes.USER_ID, resp.data?.email),
+            box.write(Routes.ROLE, resp.data?.role),
+            Get.offAllNamed(Routes.HOME, arguments: 'login')
+          }
+      },
+      onError: (err) {
+        var error = err.toString();
+        if (err.toString().contains('401')) {
+          error = 'Email atau password salah';
+        }
+        if (err.toString().contains('404')) {
+          error = 'Email atau password salah';
+        } else {
+          error = 'Error tidak diketahui';
+        }
+        Get.snackbar(
+          'Error',
+          error,
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          snackPosition: SnackPosition.BOTTOM,
+          margin: const EdgeInsets.all(20),
+          borderRadius: 10,
+          icon: const Icon(
+            Icons.notifications,
+            color: Colors.white,
+          ),
+        );
+        change(
+          null,
+          status: RxStatus.error('Terjadi kesalahan, silahkan coba lagi'),
+        );
+      },
+    );
+  }
+}
