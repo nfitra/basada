@@ -1,4 +1,5 @@
 import 'package:basada/app/routes/app_pages.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,19 +35,23 @@ class JualSampahView extends GetView<JualSampahController> {
                   arguments: controller.kategoriSampah[index].sId,
                 );
               },
-              child: Card(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/images/steel.png',
-                      height: 80.h,
-                      width: 70.w,
-                    ),
-                    Text(controller.kategoriSampah[index].kName.toString()),
-                  ],
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CachedNetworkImage(
+                    imageUrl:
+                        "${Routes.BASE_URL}/${controller.kategoriSampah[index].kImage}",
+                    height: 80.h,
+                    width: 70.w,
+                  ),
+                  Text(
+                    controller.kategoriSampah[index].kName
+                        .toString()
+                        .capitalizeFirst!,
+                    style: TextStyle(fontSize: 12.sp),
+                  ),
+                ],
               ),
             );
           },

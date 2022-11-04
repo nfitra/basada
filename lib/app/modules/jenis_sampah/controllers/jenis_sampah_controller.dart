@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class JenisSampahController extends GetxController with StateMixin {
-  //TODO: Implement JenisSampahController
-
   GetStorage box = GetStorage();
   final idKategori = Get.arguments.toString();
   final count = 0.obs;

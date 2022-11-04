@@ -15,6 +15,9 @@ abstract class Routes {
   static const JENIS_SAMPAH = _Paths.JENIS_SAMPAH;
   static const KATEGORI_SAMPAH = _Paths.KATEGORI_SAMPAH;
   static const JUAL_SAMPAH = _Paths.JUAL_SAMPAH;
+  static const FORM_JUAL = _Paths.FORM_JUAL;
+  static const SEARCHMAP = _Paths.SEARCHMAP;
+  static const PROFILE = _Paths.PROFILE;
 }
 
 abstract class _Paths {
@@ -26,4 +29,7 @@ abstract class _Paths {
   static const JENIS_SAMPAH = '/jenis-sampah';
   static const KATEGORI_SAMPAH = '/kategori-sampah';
   static const JUAL_SAMPAH = '/jual-sampah';
+  static const FORM_JUAL = '/form-jual';
+  static const SEARCHMAP = '/searchmap';
+  static const PROFILE = '/profile';
 }

@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/form_jual/bindings/form_jual_binding.dart';
+import '../modules/form_jual/views/form_jual_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/jenis_sampah/bindings/jenis_sampah_binding.dart';
@@ -10,10 +12,14 @@ import '../modules/kategori_sampah/bindings/kategori_sampah_binding.dart';
 import '../modules/kategori_sampah/views/kategori_sampah_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/profile/bindings/profile_binding.dart';
+import '../modules/profile/views/profile_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/register_next/bindings/register_next_binding.dart';
 import '../modules/register_next/views/register_next_view.dart';
+import '../modules/searchmap/bindings/searchmap_binding.dart';
+import '../modules/searchmap/views/searchmap_view.dart';
 
 part 'app_routes.dart';
 
@@ -57,6 +63,21 @@ class AppPages {
       name: _Paths.JUAL_SAMPAH,
       page: () => const JualSampahView(),
       binding: JualSampahBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORM_JUAL,
+      page: () => const FormJualView(),
+      binding: FormJualBinding(),
+    ),
+    GetPage(
+      name: _Paths.SEARCHMAP,
+      page: () => const SearchmapView(),
+      binding: SearchmapBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => const ProfileView(),
+      binding: ProfileBinding(),
     ),
   ];
 }

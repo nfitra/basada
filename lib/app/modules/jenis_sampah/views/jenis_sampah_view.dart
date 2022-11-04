@@ -25,51 +25,59 @@ class JenisSampahView extends GetView<JenisSampahController> {
         (state) => ListView.builder(
           itemCount: controller.jenisSampah.length,
           itemBuilder: (BuildContext context, int index) {
-            return Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20.r),
-                  child: SizedBox(
-                    height: 200.h,
-                    width: double.infinity,
-                    child: Image.network(
-                      "${Routes.BASE_URL}/${controller.jenisSampah[index].jImage}",
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 200.h,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
+            return GestureDetector(
+              onTap: () => Get.toNamed(Routes.FORM_JUAL, arguments: [
+                controller.jenisSampah[index].sId,
+                controller.idKategori,
+                controller.jenisSampah[index].jName,
+                controller.jenisSampah[index].jPrice,
+              ]),
+              child: Stack(
+                children: [
+                  ClipRRect(
                     borderRadius: BorderRadius.circular(20.r),
-                    gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                      colors: [
-                        Colors.black.withOpacity(0.9),
-                        Colors.black.withOpacity(0.0),
-                      ],
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 10,
-                  left: 10,
-                  child: SizedBox(
-                    width: 250.w,
-                    child: Text(
-                      controller.jenisSampah[index].jName.toString(),
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
+                    child: SizedBox(
+                      height: 200.h,
+                      width: double.infinity,
+                      child: Image.network(
+                        "${Routes.BASE_URL}/${controller.jenisSampah[index].jImage}",
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                ),
-              ],
-            ).paddingSymmetric(horizontal: 20.w, vertical: 10.h);
+                  Container(
+                    height: 200.h,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.r),
+                      gradient: LinearGradient(
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                        colors: [
+                          Colors.black.withOpacity(0.9),
+                          Colors.black.withOpacity(0.0),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 10,
+                    left: 10,
+                    child: SizedBox(
+                      width: 250.w,
+                      child: Text(
+                        controller.jenisSampah[index].jName.toString(),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ).paddingSymmetric(horizontal: 20.w, vertical: 10.h),
+            );
           },
         ),
         onLoading: const Center(

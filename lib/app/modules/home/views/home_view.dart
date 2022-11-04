@@ -1,4 +1,5 @@
 import 'package:basada/app/routes/app_pages.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -145,7 +146,7 @@ class HomeView extends GetView<HomeController> {
                                       width: 80.w,
                                     ),
                                     Text(
-                                      "Saldo",
+                                      "Riwayat",
                                       style: TextStyle(
                                         color: Colors.grey[700],
                                         fontSize: 12.sp,
@@ -166,21 +167,24 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                   borderRadius: BorderRadius.circular(8.r),
                                 ),
-                                child: Column(
-                                  children: [
-                                    Image.asset(
-                                      "assets/images/network.png",
-                                      height: 80.h,
-                                      width: 80.w,
-                                    ),
-                                    Text(
-                                      "Profile",
-                                      style: TextStyle(
-                                        color: Colors.grey[700],
-                                        fontSize: 12.sp,
+                                child: GestureDetector(
+                                  onTap: () => Get.toNamed(Routes.PROFILE),
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        "assets/images/network.png",
+                                        height: 80.h,
+                                        width: 80.w,
                                       ),
-                                    ),
-                                  ],
+                                      Text(
+                                        "Profile",
+                                        style: TextStyle(
+                                          color: Colors.grey[700],
+                                          fontSize: 12.sp,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -201,28 +205,6 @@ class HomeView extends GetView<HomeController> {
                           style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Get.toNamed(Routes.KATEGORI_SAMPAH);
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 203, 237, 188),
-                              borderRadius: BorderRadius.circular(20.r),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 10.w,
-                              vertical: 5.h,
-                            ),
-                            child: Text(
-                              "Lihat Semua",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                color: Color.fromARGB(255, 38, 109, 5),
-                              ),
-                            ),
                           ),
                         ),
                       ],
@@ -387,8 +369,9 @@ class HomeView extends GetView<HomeController> {
                                   topLeft: Radius.circular(10.r),
                                   topRight: Radius.circular(10.r),
                                 ),
-                                child: Image.network(
-                                  Routes.BASE_URL +
+                                child: CachedNetworkImage(
+                                  imageUrl: Routes.BASE_URL +
+                                      "/" +
                                       controller.articles[index].aFile
                                           .toString(),
                                   height: 100.h,
