@@ -29,7 +29,7 @@ class HomeView extends GetView<HomeController> {
                       height: .39.sh,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: Color(0xff266D05),
+                        color: const Color(0xff266D05),
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(32.r),
                           bottomRight: Radius.circular(32.r),
@@ -83,7 +83,7 @@ class HomeView extends GetView<HomeController> {
                           Text(
                             "BASADA",
                             style: TextStyle(
-                              color: Color(0xff266D05),
+                              color: const Color(0xff266D05),
                               fontSize: 40.sp,
                               fontWeight: FontWeight.bold,
                             ),
@@ -126,33 +126,38 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                 ),
                               ),
-                              Container(
-                                padding: EdgeInsets.only(
-                                  left: 5.w,
-                                  right: 5.w,
-                                  bottom: 20.h,
-                                ),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.grey[300]!,
+                              GestureDetector(
+                                onTap: () {
+                                  Get.toNamed(Routes.HISTORY);
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.only(
+                                    left: 5.w,
+                                    right: 5.w,
+                                    bottom: 20.h,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.r),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Image.asset(
-                                      "assets/images/wallet.png",
-                                      height: 80.h,
-                                      width: 80.w,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.grey[300]!,
                                     ),
-                                    Text(
-                                      "Riwayat",
-                                      style: TextStyle(
-                                        color: Colors.grey[700],
-                                        fontSize: 12.sp,
+                                    borderRadius: BorderRadius.circular(8.r),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        "assets/images/wallet.png",
+                                        height: 80.h,
+                                        width: 80.w,
                                       ),
-                                    ),
-                                  ],
+                                      Text(
+                                        "Riwayat",
+                                        style: TextStyle(
+                                          color: Colors.grey[700],
+                                          fontSize: 12.sp,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                               Container(
@@ -370,10 +375,8 @@ class HomeView extends GetView<HomeController> {
                                   topRight: Radius.circular(10.r),
                                 ),
                                 child: CachedNetworkImage(
-                                  imageUrl: Routes.BASE_URL +
-                                      "/" +
-                                      controller.articles[index].aFile
-                                          .toString(),
+                                  imageUrl:
+                                      "${Routes.BASE_URL}/${controller.articles[index].aFile}",
                                   height: 100.h,
                                   width: 200.w,
                                   fit: BoxFit.cover,
@@ -393,9 +396,9 @@ class HomeView extends GetView<HomeController> {
                       },
                     ).paddingOnly(left: 32.w),
                   ),
-                  onLoading: Center(child: CircularProgressIndicator()),
+                  onLoading: const Center(child: CircularProgressIndicator()),
                   onError: (error) => Center(child: Text(error.toString())),
-                  onEmpty: Center(child: Text("Data Kosong")),
+                  onEmpty: const Center(child: Text("Data Kosong")),
                 ),
 
                 // ElevatedButton(

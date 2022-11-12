@@ -20,8 +20,8 @@ class FormJualView extends GetView<FormJualController> {
 
   @override
   Widget build(BuildContext context) {
-    const double _kItemExtent = 32.0;
-    const List<String> _fruitNames = <String>[
+    const double kItemExtent = 32.0;
+    const List<String> fruitNames = <String>[
       'Apple',
       'Mango',
       'Banana',
@@ -299,7 +299,7 @@ class FormJualView extends GetView<FormJualController> {
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             minimumSize: Size(374.w, 50.h),
-                            primary: primary,
+                            backgroundColor: primary,
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.w),
@@ -310,7 +310,7 @@ class FormJualView extends GetView<FormJualController> {
                               magnification: 1.22,
                               squeeze: 1.2,
                               useMagnifier: true,
-                              itemExtent: _kItemExtent,
+                              itemExtent: kItemExtent,
                               onSelectedItemChanged: (int selectedItem) {
                                 controller.selectedAdmin.value = controller
                                     .admin[selectedItem].unName
@@ -379,7 +379,7 @@ class FormJualView extends GetView<FormJualController> {
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             minimumSize: Size(374.w, 50.h),
-                            primary: primary,
+                            backgroundColor: primary,
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.w),
@@ -390,7 +390,7 @@ class FormJualView extends GetView<FormJualController> {
                               magnification: 1.22,
                               squeeze: 1.2,
                               useMagnifier: true,
-                              itemExtent: _kItemExtent,
+                              itemExtent: kItemExtent,
                               // This is called when selected item is changed.
                               onSelectedItemChanged: (int selectedItem) {
                                 controller.selectedJadwal.value =
@@ -413,7 +413,7 @@ class FormJualView extends GetView<FormJualController> {
                             children: [
                               Obx(() {
                                 return Text(
-                                  '${controller.selectedJadwal.value}',
+                                  controller.selectedJadwal.value,
                                   style: TextStyle(
                                     color: white,
                                     fontSize: 12.sp,
@@ -464,7 +464,7 @@ class FormJualView extends GetView<FormJualController> {
                             press: () {
                               controller.jualSampah(
                                 controller.fileImage.value,
-                                controller.dataSampah[1],
+                                controller.dataSampah[0],
                                 controller.geometry.latitude.toString(),
                                 controller.geometry.longitude.toString(),
                                 controller.beratSampahController.text,
@@ -484,7 +484,7 @@ class FormJualView extends GetView<FormJualController> {
                             press: () {
                               controller.jualSampah(
                                 controller.fileImage.value,
-                                controller.dataSampah,
+                                controller.dataSampah[0],
                                 controller.geometry.latitude.toString(),
                                 controller.geometry.longitude.toString(),
                                 controller.beratSampahController.text,
@@ -509,7 +509,7 @@ class FormJualView extends GetView<FormJualController> {
                             press: () {
                               controller.jualSampah(
                                 controller.fileImage.value,
-                                controller.dataSampah,
+                                controller.dataSampah[0],
                                 controller.geometry.latitude.toString(),
                                 controller.geometry.longitude.toString(),
                                 controller.beratSampahController.text,
@@ -538,7 +538,7 @@ class FormJualView extends GetView<FormJualController> {
           ? ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(374.w, 50.h),
-                primary: primary,
+                backgroundColor: primary,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.w),
@@ -566,7 +566,7 @@ class FormJualView extends GetView<FormJualController> {
           : ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(374.w, 50.h),
-                primary: primary,
+                backgroundColor: primary,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.w),

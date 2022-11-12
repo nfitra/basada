@@ -1,3 +1,4 @@
+import 'package:basada/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,7 +13,7 @@ class ProfileView extends GetView<ProfileController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Akun'),
-        backgroundColor: Color(0xff266D05),
+        backgroundColor: const Color(0xff266D05),
         elevation: 0,
       ),
       body: controller.obx(
@@ -57,7 +58,8 @@ class ProfileView extends GetView<ProfileController> {
                 children: [
                   const SizedBox(height: 20),
                   GestureDetector(
-                    onTap: () => Get.toNamed('/edit-profile'),
+                    onTap: () => Get.toNamed(Routes.EDIT_PROFILE,
+                        arguments: controller.profileData.value),
                     child: Row(
                       children: const [
                         Icon(
@@ -127,6 +129,26 @@ class ProfileView extends GetView<ProfileController> {
                         SizedBox(width: 20),
                         Text(
                           'Bantuan',
+                          style: TextStyle(
+                            color: Color(0xff266D05),
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () => Get.toNamed('/riwayat'),
+                    child: Row(
+                      children: const [
+                        Icon(
+                          Icons.logout,
+                          color: Color(0xff266D05),
+                        ),
+                        SizedBox(width: 20),
+                        Text(
+                          'Keluar',
                           style: TextStyle(
                             color: Color(0xff266D05),
                             fontSize: 20,

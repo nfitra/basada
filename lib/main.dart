@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,9 +11,32 @@ import 'app/routes/app_pages.dart';
 void main() async {
   await GetStorage.init();
   await ScreenUtil.ensureScreenSize(); // flutter_screenutil
+  await Firebase.initializeApp();
+  await FirebaseMessaging.instance.setAutoInitEnabled(true);
 
   GetStorage box = GetStorage();
   WidgetsFlutterBinding.ensureInitialized();
+
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    RemoteNotification? notification = message.notification;
+    AndroidNotification? android = message.notification?.android;
+    if (notification != null && android != null) {
+      Get.snackbar(
+        notification.title!,
+        notification.body!,
+        backgroundColor: Colors.red,
+        colorText: Colors.black,
+        snackPosition: SnackPosition.TOP,
+        margin: const EdgeInsets.all(20),
+        borderRadius: 10,
+        icon: const Icon(
+          Icons.notifications,
+          color: Colors.black,
+        ),
+      );
+    }
+  });
 
   runApp(
     ScreenUtilInit(
@@ -35,4 +60,9 @@ void main() async {
       ),
     ),
   );
+}
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+  print('Handling a background message ${message.messageId}');
 }
