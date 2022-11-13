@@ -12,6 +12,49 @@ class HomeController extends GetxController with StateMixin {
   final List<ArticleModel> articles = <ArticleModel>[].obs;
   final firebaseMessagingToken = FirebaseMessaging.instance.getToken();
   String fcmToken = '';
+  final dataKatalog = <Map<String, dynamic>>[
+    {
+      "id": "ea6988222a32f1af2ac2fe1353d661f2",
+      "name": "Kertas",
+      "image": "assets/images/documents.png",
+    },
+    {
+      "id": "35041a633122f57d2cd51cb4ae05f9f7",
+      "name": "Besi",
+      "image": "assets/images/steel.png",
+    },
+    {
+      "id": "e80ced31182f380d98b1e2533427f1f3",
+      "name": "Plastik",
+      "image": "assets/images/plastic.png",
+    },
+    {
+      "id": "a74624eb2545db8476c851c96f20f17f",
+      "name": "Minyak",
+      "image": "assets/images/oil.png",
+    },
+    {
+      "id": "5bbe740b25b16aec1e69919095f067de",
+      "name": "Kaca",
+      "image": "assets/images/glass.png",
+    },
+    {
+      "id": "e14388a0184cd3bf6cc6e620816e79b3",
+      "name": "Kara",
+      "image": "assets/images/kara.png",
+    },
+    {
+      "id": "1aea25760cb1f58f7268e3338c1fce24",
+      "name": "Logam",
+      "image": "assets/images/steel.png",
+    },
+    {
+      "id": "ef762faef5ffd2266981c9891bd8a7b7",
+      "name": "Elektronik",
+      "image": "assets/images/electronic.png",
+    }
+  ];
+
   @override
   void onInit() async {
     super.onInit();

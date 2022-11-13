@@ -26,12 +26,16 @@ class JenisSampahView extends GetView<JenisSampahController> {
           itemCount: controller.jenisSampah.length,
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
-              onTap: () => Get.toNamed(Routes.FORM_JUAL, arguments: [
-                controller.jenisSampah[index].sId,
-                controller.idKategori,
-                controller.jenisSampah[index].jName,
-                controller.jenisSampah[index].jPrice,
-              ]),
+              onTap: () {
+                if (controller.isKatalog) {
+                  Get.toNamed(Routes.FORM_JUAL, arguments: [
+                    controller.jenisSampah[index].sId,
+                    controller.idKategori,
+                    controller.jenisSampah[index].jName,
+                    controller.jenisSampah[index].jPrice,
+                  ]);
+                }
+              },
               child: Stack(
                 children: [
                   ClipRRect(

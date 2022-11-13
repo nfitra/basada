@@ -45,22 +45,28 @@ class HomeView extends GetView<HomeController> {
                               height: 80.h,
                             ),
                             20.horizontalSpace,
-                            SizedBox(
-                              height: 80.h,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text("Antar Ke Drop-Point",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w600)),
-                                  Text("Temukan Drop-Point Terdekat!",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 14.sp)),
-                                ],
+                            GestureDetector(
+                              onTap: () {
+                                controller.launchUrlString(
+                                    "https://banksampah.pekanbaru.go.id/home/jadwal_sampah");
+                              },
+                              child: SizedBox(
+                                height: 80.h,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text("Antar Ke Drop-Point",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16.sp,
+                                            fontWeight: FontWeight.w600)),
+                                    Text("Temukan Drop-Point Terdekat!",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14.sp)),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -215,135 +221,79 @@ class HomeView extends GetView<HomeController> {
                       ],
                     ).paddingOnly(left: 32.w, right: 32.w),
                     10.verticalSpace,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/documents.png",
-                              height: 50.h,
-                              width: 50.w,
-                            ).paddingAll(10.r),
-                            Text(
-                              "Kertas",
-                              style: TextStyle(
-                                fontSize: 14.sp,
+                    SizedBox(
+                      height: 100.h,
+                      width: 1.sw,
+                      child: ListView.builder(
+                        itemCount: 4,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) => GestureDetector(
+                          onTap: () => Get.toNamed(
+                            Routes.JENIS_SAMPAH,
+                            arguments: controller.dataKatalog[index]['id'],
+                            parameters: {
+                              'name': controller.dataKatalog[index]['nama']
+                            },
+                          ),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                controller.dataKatalog[index]['image']
+                                    .toString(),
+                                height: 50.h,
+                                width: 50.w,
+                              ).paddingAll(10.r),
+                              Text(
+                                controller.dataKatalog[index]['name']
+                                    .toString(),
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ).paddingOnly(right: 25.w),
                         ),
-                        Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/steel.png",
-                              height: 50.h,
-                              width: 50.w,
-                            ).paddingAll(10.r),
-                            Text(
-                              "Besi",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/plastic.png",
-                              height: 50.h,
-                              width: 50.w,
-                            ).paddingAll(10.r),
-                            Text(
-                              "Plastik",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/oil.png",
-                              height: 50.h,
-                              width: 50.w,
-                            ).paddingAll(10.r),
-                            Text(
-                              "Minyak",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
+                      ),
                     ).paddingOnly(left: 32.w, right: 32.w),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/glass.png",
-                              height: 50.h,
-                              width: 50.w,
-                            ).paddingAll(10.r),
-                            Text(
-                              "Kaca",
-                              style: TextStyle(
-                                fontSize: 14.sp,
+                    SizedBox(
+                      height: 100.h,
+                      width: 1.sw,
+                      child: ListView.builder(
+                          itemCount: 4,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemBuilder: (context, index) {
+                            index = index + 4;
+                            return GestureDetector(
+                              onTap: () => Get.toNamed(
+                                Routes.JENIS_SAMPAH,
+                                arguments: controller.dataKatalog[index]['id'],
+                                parameters: {
+                                  'name': controller.dataKatalog[index]['name']
+                                },
                               ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/kara.png",
-                              height: 50.h,
-                              width: 50.w,
-                            ).paddingAll(10.r),
-                            Text(
-                              "Kara",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/steel.png",
-                              height: 50.h,
-                              width: 50.w,
-                            ).paddingAll(10.r),
-                            Text(
-                              "Logam",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Image.asset(
-                              "assets/images/electronic.png",
-                              height: 50.h,
-                              width: 50.w,
-                            ).paddingAll(10.r),
-                            Text(
-                              "Elektronik",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    controller.dataKatalog[index]['image']
+                                        .toString(),
+                                    height: 50.h,
+                                    width: 50.w,
+                                  ).paddingAll(10.r),
+                                  Text(
+                                    controller.dataKatalog[index]['name']
+                                        .toString(),
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                    ),
+                                  ),
+                                ],
+                              ).paddingOnly(right: 25.w),
+                            );
+                          }),
                     ).paddingOnly(left: 32.w, right: 32.w),
                   ],
                 ),

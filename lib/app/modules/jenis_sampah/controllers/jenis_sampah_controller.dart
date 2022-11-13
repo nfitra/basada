@@ -6,12 +6,14 @@ import 'package:get_storage/get_storage.dart';
 class JenisSampahController extends GetxController with StateMixin {
   GetStorage box = GetStorage();
   final idKategori = Get.arguments.toString();
+  var isKatalog = false;
   final count = 0.obs;
   final List<JenisSampahModel> jenisSampah = <JenisSampahModel>[].obs;
   @override
   void onInit() async {
     super.onInit();
     change(null, status: RxStatus.empty());
+    isKatalog = Get.parameters['name'] == null;
     await getJenisSampah();
   }
 

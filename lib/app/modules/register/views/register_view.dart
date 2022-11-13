@@ -155,7 +155,7 @@ class RegisterView extends GetView<RegisterController> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       const Text(
-                                        "Don’t have an Account ? ",
+                                        "Already have an account? ",
                                         style:
                                             TextStyle(color: Color(0xff3A7E04)),
                                       ),
@@ -164,7 +164,7 @@ class RegisterView extends GetView<RegisterController> {
                                           Get.toNamed(Routes.LOGIN);
                                         },
                                         child: const Text(
-                                          "Sign Up",
+                                          "Login",
                                           style: TextStyle(
                                             color: Color(0xff3A7E04),
                                             fontWeight: FontWeight.bold,

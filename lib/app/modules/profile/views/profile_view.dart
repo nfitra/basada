@@ -48,6 +48,16 @@ class ProfileView extends GetView<ProfileController> {
                       fontSize: 15,
                     ),
                   ),
+                  const SizedBox(height: 10),
+                  Text(
+                    "Saldo Rp." +
+                        controller.profileData.value.nBalance.toString(),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ],
               ),
             ),

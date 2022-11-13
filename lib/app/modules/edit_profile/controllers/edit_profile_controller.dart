@@ -83,7 +83,7 @@ class EditProfileController extends GetxController with StateMixin {
           .then(
         (value) {
           change(value, status: RxStatus.success());
-          successSnackBar('Register Success');
+          successSnackBar('Edit Profile Success');
           Get.offAllNamed(Routes.HOME);
         },
         onError: (error) {
