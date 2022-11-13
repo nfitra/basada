@@ -364,33 +364,37 @@ class HomeView extends GetView<HomeController> {
                       scrollDirection: Axis.horizontal,
                       padding: const EdgeInsets.all(0),
                       itemBuilder: (context, index) {
-                        return SizedBox(
-                          width: 220.w,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10.r),
-                                  topRight: Radius.circular(10.r),
+                        return GestureDetector(
+                          onTap: () => controller.launchUrlString(
+                              "https://banksampah.pekanbaru.go.id/home/artikel"),
+                          child: SizedBox(
+                            width: 220.w,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(10.r),
+                                    topRight: Radius.circular(10.r),
+                                  ),
+                                  child: CachedNetworkImage(
+                                    imageUrl:
+                                        "${Routes.BASE_URL}/${controller.articles[index].aFile}",
+                                    height: 100.h,
+                                    width: 200.w,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
-                                child: CachedNetworkImage(
-                                  imageUrl:
-                                      "${Routes.BASE_URL}/${controller.articles[index].aFile}",
-                                  height: 100.h,
-                                  width: 200.w,
-                                  fit: BoxFit.cover,
+                                5.verticalSpace,
+                                Text(
+                                  controller.articles[index].aTitle.toString(),
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
-                              ),
-                              5.verticalSpace,
-                              Text(
-                                controller.articles[index].aTitle.toString(),
-                                style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         );
                       },
@@ -400,12 +404,6 @@ class HomeView extends GetView<HomeController> {
                   onError: (error) => Center(child: Text(error.toString())),
                   onEmpty: const Center(child: Text("Data Kosong")),
                 ),
-
-                // ElevatedButton(
-                //     onPressed: () {
-                //       controller.logout();
-                //     },
-                //     child: Text('Logout'))
               ],
             ),
           ),

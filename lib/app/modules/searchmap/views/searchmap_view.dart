@@ -17,7 +17,8 @@ class SearchmapView extends GetView<SearchmapController> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Pilih titik laporan'),
+        title: const Text('Pilih titik penjemputan'),
+        backgroundColor: const Color(0xff266D05),
       ),
       body: SafeArea(
         child: buildMap(),

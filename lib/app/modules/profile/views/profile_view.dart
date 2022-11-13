@@ -79,7 +79,8 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   const SizedBox(height: 20),
                   GestureDetector(
-                    onTap: () => Get.toNamed('/edit-password'),
+                    onTap: () => controller.launchUrlString(
+                        "https://banksampah.pekanbaru.go.id/home/jadwal_sampah"),
                     child: Row(
                       children: const [
                         Icon(
@@ -99,7 +100,8 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   const SizedBox(height: 20),
                   GestureDetector(
-                    onTap: () => Get.toNamed('/edit-password'),
+                    onTap: () => controller.launchUrlString(
+                        "https://banksampah.pekanbaru.go.id/home/jadwal_sampah"),
                     child: Row(
                       children: const [
                         Icon(
@@ -119,7 +121,8 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   const SizedBox(height: 20),
                   GestureDetector(
-                    onTap: () => Get.toNamed('/riwayat'),
+                    onTap: () => controller.launchUrlString(
+                        "https://banksampah.pekanbaru.go.id/home/index"),
                     child: Row(
                       children: const [
                         Icon(
@@ -139,7 +142,7 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   const SizedBox(height: 20),
                   GestureDetector(
-                    onTap: () => Get.toNamed('/riwayat'),
+                    onTap: () => controller.logout(),
                     child: Row(
                       children: const [
                         Icon(

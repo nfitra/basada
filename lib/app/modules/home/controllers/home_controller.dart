@@ -4,6 +4,7 @@ import 'package:basada/app/routes/app_pages.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeController extends GetxController with StateMixin {
   GetStorage box = GetStorage();
@@ -15,17 +16,7 @@ class HomeController extends GetxController with StateMixin {
   void onInit() async {
     super.onInit();
     change(null, status: RxStatus.loading());
-    await addDevice();
     await getArticle();
-  }
-
-  Future<void> addDevice() async {
-    await firebaseMessagingToken.then((value) {
-      fcmToken = value.toString();
-    });
-    await HomeProvider()
-        .addDevice(box.read('token'), fcmToken)
-        .then((value) => print("Device added"));
   }
 
   Future<void> getArticle() async {
@@ -43,5 +34,10 @@ class HomeController extends GetxController with StateMixin {
     Get.offAllNamed(Routes.LOGIN);
   }
 
-  void increment() => count.value++;
+  Future<void> launchUrlString(String url) async {
+    final urlUri = Uri.parse(url);
+    if (!await launchUrl(urlUri, mode: LaunchMode.externalApplication)) {
+      throw 'Could not launch $url';
+    }
+  }
 }

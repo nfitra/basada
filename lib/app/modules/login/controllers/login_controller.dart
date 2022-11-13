@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -11,6 +12,8 @@ class LoginController extends GetxController with StateMixin {
   late TextEditingController myControllerPassword;
   final isPasswordHidden = true.obs;
 
+  final firebaseMessagingToken = FirebaseMessaging.instance.getToken();
+  String fcmToken = '';
   @override
   void onInit() {
     super.onInit();
@@ -18,7 +21,15 @@ class LoginController extends GetxController with StateMixin {
     change(null, status: RxStatus.empty());
     myControllerEmail = TextEditingController();
     myControllerPassword = TextEditingController();
-    print(box.read(Routes.REGISTER_TOKEN));
+  }
+
+  Future<void> addDevice() async {
+    await firebaseMessagingToken.then((value) {
+      fcmToken = value.toString();
+    });
+    await LoginProvider().addDevice(box.read('token'), fcmToken).then((value) {
+      box.write('id_device', value.data?.idDevice);
+    });
   }
 
   Future<void> userLogin(String email, String password) async {
@@ -33,7 +44,8 @@ class LoginController extends GetxController with StateMixin {
             box.write(Routes.TOKEN, resp.data?.token),
             box.write(Routes.USER_ID, resp.data?.email),
             box.write(Routes.ROLE, resp.data?.role),
-            Get.offAllNamed(Routes.HOME, arguments: 'login')
+            addDevice().then(
+                (value) => Get.offAllNamed(Routes.HOME, arguments: 'login'))
           }
       },
       onError: (err) {

@@ -16,9 +16,12 @@ dependencies:
   cached_network_image: 3.2.2
   firebase_messaging: 12.0.1
   firebase_core: ^1.19.1
+  flutter_native_splash: ^2.2.14
+  flutter_launcher_icons: ^0.10.0
   geocoding: ^2.0.1
   location: ^4.3.0
   image_picker: 0.8.6
+  url_launcher: ^6.1.6
   flutter: 
     sdk: flutter
 
@@ -32,3 +35,8 @@ flutter:
     - assets/images/
   uses-material-design: true
 
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/basada.png"
+  min_sdk_android: 21 
