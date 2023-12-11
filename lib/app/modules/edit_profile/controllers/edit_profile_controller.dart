@@ -71,7 +71,7 @@ class EditProfileController extends GetxController with StateMixin {
     } else {
       await EditProfileProvider()
           .updateProfile(
-        box.read(Routes.TOKEN),
+        box.read(Routes.token),
         name,
         dateOfBirth,
         address,
@@ -84,7 +84,7 @@ class EditProfileController extends GetxController with StateMixin {
         (value) {
           change(value, status: RxStatus.success());
           successSnackBar('Edit Profile Success');
-          Get.offAllNamed(Routes.HOME);
+          Get.offAllNamed(Routes.routeHome);
         },
         onError: (error) {
           change(null, status: RxStatus.error(error.toString()));

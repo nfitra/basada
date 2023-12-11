@@ -19,23 +19,13 @@ class JualSampahController extends GetxController with StateMixin {
   Future<void> getKategoriSampah() async {
     change(null, status: RxStatus.loading());
     KategoriSampahProvider()
-        .getJenisSampah(box.read(Routes.TOKEN))
+        .getJenisSampah(box.read(Routes.token))
         .then((value) {
       kategoriSampah.assignAll(value);
       change(value, status: RxStatus.success());
     }).catchError((err) {
       change(null, status: RxStatus.error(err.toString()));
     });
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
   }
 
   void increment() => count.value++;

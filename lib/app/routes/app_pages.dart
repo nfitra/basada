@@ -30,66 +30,66 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.LOGIN;
+  static const initial = Routes.routeLogin;
 
   static final routes = [
     GetPage(
-      name: _Paths.HOME,
+      name: _Paths.routeHome,
       page: () => const HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.LOGIN,
+      name: _Paths.routeLogin,
       page: () => const LoginView(),
       binding: LoginBinding(),
     ),
     GetPage(
-      name: _Paths.REGISTER,
+      name: _Paths.routeRegister,
       page: () => const RegisterView(),
       binding: RegisterBinding(),
     ),
     GetPage(
-      name: _Paths.REGISTER_NEXT,
+      name: _Paths.routeRegisterNext,
       page: () => const RegisterNextView(),
       binding: RegisterNextBinding(),
     ),
     GetPage(
-      name: _Paths.JENIS_SAMPAH,
+      name: _Paths.routeJenisSampah,
       page: () => const JenisSampahView(),
       binding: JenisSampahBinding(),
     ),
     GetPage(
-      name: _Paths.KATEGORI_SAMPAH,
+      name: _Paths.routeKategoriSampah,
       page: () => const KategoriSampahView(),
       binding: KategoriSampahBinding(),
     ),
     GetPage(
-      name: _Paths.JUAL_SAMPAH,
+      name: _Paths.routeJualSampah,
       page: () => const JualSampahView(),
       binding: JualSampahBinding(),
     ),
     GetPage(
-      name: _Paths.FORM_JUAL,
+      name: _Paths.routeFormJual,
       page: () => const FormJualView(),
       binding: FormJualBinding(),
     ),
     GetPage(
-      name: _Paths.SEARCHMAP,
+      name: _Paths.routeSearchMap,
       page: () => const SearchmapView(),
       binding: SearchmapBinding(),
     ),
     GetPage(
-      name: _Paths.PROFILE,
+      name: _Paths.routeProfile,
       page: () => const ProfileView(),
       binding: ProfileBinding(),
     ),
     GetPage(
-      name: _Paths.HISTORY,
+      name: _Paths.routeHistory,
       page: () => const HistoryView(),
       binding: HistoryBinding(),
     ),
     GetPage(
-      name: _Paths.EDIT_PROFILE,
+      name: _Paths.routeEditProfile,
       page: () => const EditProfileView(),
       binding: EditProfileBinding(),
     ),

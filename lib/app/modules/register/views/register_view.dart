@@ -4,37 +4,14 @@ import 'package:get/get.dart';
 
 import '../../../routes/app_pages.dart';
 import '../controllers/register_controller.dart';
+import '../../../utils/custom_theme.dart';
 
 class RegisterView extends GetView<RegisterController> {
   const RegisterView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: ThemeData(
-        primaryColor: const Color(0xff3A7E04),
-        scaffoldBackgroundColor: Colors.white,
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            elevation: 0,
-            backgroundColor: const Color(0xff3A7E04),
-            shape: const StadiumBorder(),
-            maximumSize: const Size(double.infinity, 56),
-            minimumSize: const Size(double.infinity, 56),
-          ),
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          filled: true,
-          fillColor: Color(0xff3A7E04).withOpacity(0.1),
-          iconColor: Color(0xff3A7E04),
-          prefixIconColor: Color(0xff3A7E04),
-          contentPadding:
-              EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30)),
-            borderSide: BorderSide.none,
-          ),
-        ),
-      ),
+      data: CustomTheme.getPrimary(),
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         body: SizedBox(
@@ -161,7 +138,7 @@ class RegisterView extends GetView<RegisterController> {
                                       ),
                                       GestureDetector(
                                         onTap: () {
-                                          Get.toNamed(Routes.LOGIN);
+                                          Get.toNamed(Routes.routeLogin);
                                         },
                                         child: const Text(
                                           "Login",

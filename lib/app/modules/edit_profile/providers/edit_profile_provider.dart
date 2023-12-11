@@ -14,7 +14,7 @@ class EditProfileProvider extends GetConnect {
     String phoneNumber,
   ) async {
     final response = await put(
-      "${Routes.BASE_URL}/api/nasabah",
+      "${Routes.baseUrl}/api/nasabah",
       {
         "nama": name,
         "tanggal_lahir": dateOfBirth,

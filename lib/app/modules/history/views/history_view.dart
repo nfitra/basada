@@ -45,7 +45,7 @@ class HistoryView extends GetView<HistoryController> {
                         borderRadius: BorderRadius.circular(5.r),
                         child: CachedNetworkImage(
                           imageUrl:
-                              "${Routes.BASE_URL}/${controller.historyList[index].rImage!}",
+                              "${Routes.baseUrl}/${controller.historyList[index].rImage!}",
                           width: 50.w,
                           height: 100.h,
                           errorWidget: (context, url, error) => const Icon(

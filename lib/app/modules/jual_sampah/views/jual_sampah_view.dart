@@ -31,7 +31,7 @@ class JualSampahView extends GetView<JualSampahController> {
             return GestureDetector(
               onTap: () {
                 Get.toNamed(
-                  Routes.JENIS_SAMPAH,
+                  Routes.routeJenisSampah,
                   arguments: controller.kategoriSampah[index].sId,
                 );
               },
@@ -41,7 +41,7 @@ class JualSampahView extends GetView<JualSampahController> {
                 children: [
                   CachedNetworkImage(
                     imageUrl:
-                        "${Routes.BASE_URL}/${controller.kategoriSampah[index].kImage}",
+                        "${Routes.baseUrl}/${controller.kategoriSampah[index].kImage}",
                     height: 80.h,
                     width: 70.w,
                   ),

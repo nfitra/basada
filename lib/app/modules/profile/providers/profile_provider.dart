@@ -6,7 +6,7 @@ import '../../../routes/app_pages.dart';
 class ProfileProvider extends GetConnect {
   Future<ProfileModel> getProfile(String token) async {
     final response = await get(
-      "${Routes.BASE_URL}/api/nasabah/profile",
+      "${Routes.baseUrl}/api/nasabah/profile",
       headers: {
         'token': token,
       },

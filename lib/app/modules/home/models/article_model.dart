@@ -24,13 +24,13 @@ class ArticleModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['a_title'] = this.aTitle;
-    data['a_content'] = this.aContent;
-    data['k_name'] = this.kName;
-    data['a_file'] = this.aFile;
-    data['a_file_type'] = this.aFileType;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['a_title'] = aTitle;
+    data['a_content'] = aContent;
+    data['k_name'] = kName;
+    data['a_file'] = aFile;
+    data['a_file_type'] = aFileType;
     return data;
   }
 }

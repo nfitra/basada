@@ -3,37 +3,37 @@ part of 'app_pages.dart';
 
 abstract class Routes {
   Routes._();
-  static const HOME = _Paths.HOME;
-  static const LOGIN = _Paths.LOGIN;
-  static const REGISTER = _Paths.REGISTER;
-  static const BASE_URL = "https://banksampah.pekanbaru.go.id";
-  static const TOKEN = "token";
-  static const USER_ID = "user_id";
-  static const ROLE = "role";
-  static const REGISTER_TOKEN = "register_token";
-  static const REGISTER_NEXT = _Paths.REGISTER_NEXT;
-  static const JENIS_SAMPAH = _Paths.JENIS_SAMPAH;
-  static const KATEGORI_SAMPAH = _Paths.KATEGORI_SAMPAH;
-  static const JUAL_SAMPAH = _Paths.JUAL_SAMPAH;
-  static const FORM_JUAL = _Paths.FORM_JUAL;
-  static const SEARCHMAP = _Paths.SEARCHMAP;
-  static const PROFILE = _Paths.PROFILE;
-  static const HISTORY = _Paths.HISTORY;
-  static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
+  static const routeHome = _Paths.routeHome;
+  static const routeLogin = _Paths.routeLogin;
+  static const routeRegister = _Paths.routeRegister;
+  static const baseUrl = "https://banksampah.pekanbaru.go.id";
+  static const token = "token";
+  static const userId = "user_id";
+  static const role = "role";
+  static const registerToken = "register_token";
+  static const routeRegisterNext = _Paths.routeRegisterNext;
+  static const routeJenisSampah = _Paths.routeJenisSampah;
+  static const routeKategoriSampah = _Paths.routeKategoriSampah;
+  static const routeJualSampah = _Paths.routeJualSampah;
+  static const routeFormJual = _Paths.routeFormJual;
+  static const routeSearchMap = _Paths.routeSearchMap;
+  static const routeProfile = _Paths.routeProfile;
+  static const routeHistory = _Paths.routeHistory;
+  static const routeEditProfile = _Paths.routeEditProfile;
 }
 
 abstract class _Paths {
   _Paths._();
-  static const HOME = '/home';
-  static const LOGIN = '/login';
-  static const REGISTER = '/register';
-  static const REGISTER_NEXT = '/register-next';
-  static const JENIS_SAMPAH = '/jenis-sampah';
-  static const KATEGORI_SAMPAH = '/kategori-sampah';
-  static const JUAL_SAMPAH = '/jual-sampah';
-  static const FORM_JUAL = '/form-jual';
-  static const SEARCHMAP = '/searchmap';
-  static const PROFILE = '/profile';
-  static const HISTORY = '/history';
-  static const EDIT_PROFILE = '/edit-profile';
+  static const routeHome = '/home';
+  static const routeLogin = '/login';
+  static const routeRegister = '/register';
+  static const routeRegisterNext = '/register-next';
+  static const routeJenisSampah = '/jenis-sampah';
+  static const routeKategoriSampah = '/kategori-sampah';
+  static const routeJualSampah = '/jual-sampah';
+  static const routeFormJual = '/form-jual';
+  static const routeSearchMap = '/searchmap';
+  static const routeProfile = '/profile';
+  static const routeHistory = '/history';
+  static const routeEditProfile = '/edit-profile';
 }

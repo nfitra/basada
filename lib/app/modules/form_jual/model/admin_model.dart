@@ -14,11 +14,11 @@ class AdminModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['un_name'] = this.unName;
-    data['fk_auth'] = this.fkAuth;
-    data['_id'] = this.sId;
-    data['isActive'] = this.isActive;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['un_name'] = unName;
+    data['fk_auth'] = fkAuth;
+    data['_id'] = sId;
+    data['isActive'] = isActive;
     return data;
   }
 }

@@ -6,7 +6,7 @@ import '../../../routes/app_pages.dart';
 class JenisSampahProvider extends GetConnect {
   Future<List<JenisSampahModel>> getJenisSampah(String token, String id) async {
     final response = await get(
-      "${Routes.BASE_URL}/api/sampah-by-kategori/$id",
+      "${Routes.baseUrl}/api/sampah-by-kategori/$id",
       headers: {
         'token': token,
       },

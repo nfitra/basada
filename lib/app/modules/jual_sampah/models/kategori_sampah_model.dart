@@ -12,10 +12,10 @@ class KategoriSampahModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['k_name'] = this.kName;
-    data['k_image'] = this.kImage;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['k_name'] = kName;
+    data['k_image'] = kImage;
     return data;
   }
 }

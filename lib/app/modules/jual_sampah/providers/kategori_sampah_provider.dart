@@ -9,7 +9,7 @@ class KategoriSampahProvider {
     var dio = Dio();
     final response = await dio
         .get(
-      "${Routes.BASE_URL}/api/kategori-sampah",
+      "${Routes.baseUrl}/api/kategori-sampah",
       options: Options(
         headers: {
           'token': token,

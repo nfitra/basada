@@ -45,20 +45,20 @@ class ProfileModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['fk_auth'] = this.fkAuth;
-    data['n_name'] = this.nName;
-    data['n_dob'] = this.nDob;
-    data['n_address'] = this.nAddress;
-    data['n_city'] = this.nCity;
-    data['n_province'] = this.nProvince;
-    data['n_postcode'] = this.nPostcode;
-    data['n_contact'] = this.nContact;
-    data['n_balance'] = this.nBalance;
-    data['isExist'] = this.isExist;
-    data['n_status'] = this.nStatus;
-    data['n_created_at'] = this.nCreatedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['fk_auth'] = fkAuth;
+    data['n_name'] = nName;
+    data['n_dob'] = nDob;
+    data['n_address'] = nAddress;
+    data['n_city'] = nCity;
+    data['n_province'] = nProvince;
+    data['n_postcode'] = nPostcode;
+    data['n_contact'] = nContact;
+    data['n_balance'] = nBalance;
+    data['isExist'] = isExist;
+    data['n_status'] = nStatus;
+    data['n_created_at'] = nCreatedAt;
     return data;
   }
 }

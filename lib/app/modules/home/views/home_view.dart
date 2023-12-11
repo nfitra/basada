@@ -100,7 +100,7 @@ class HomeView extends GetView<HomeController> {
                             children: [
                               GestureDetector(
                                 onTap: () {
-                                  Get.toNamed(Routes.JUAL_SAMPAH);
+                                  Get.toNamed(Routes.routeJualSampah);
                                 },
                                 child: Container(
                                   padding: EdgeInsets.only(
@@ -134,7 +134,7 @@ class HomeView extends GetView<HomeController> {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  Get.toNamed(Routes.HISTORY);
+                                  Get.toNamed(Routes.routeHistory);
                                 },
                                 child: Container(
                                   padding: EdgeInsets.only(
@@ -179,7 +179,7 @@ class HomeView extends GetView<HomeController> {
                                   borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 child: GestureDetector(
-                                  onTap: () => Get.toNamed(Routes.PROFILE),
+                                  onTap: () => Get.toNamed(Routes.routeProfile),
                                   child: Column(
                                     children: [
                                       Image.asset(
@@ -231,7 +231,7 @@ class HomeView extends GetView<HomeController> {
                         physics: NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) => GestureDetector(
                           onTap: () => Get.toNamed(
-                            Routes.JENIS_SAMPAH,
+                            Routes.routeJenisSampah,
                             arguments: controller.dataKatalog[index]['id'],
                             parameters: {
                               'name': controller.dataKatalog[index]['nama']
@@ -269,7 +269,7 @@ class HomeView extends GetView<HomeController> {
                             index = index + 4;
                             return GestureDetector(
                               onTap: () => Get.toNamed(
-                                Routes.JENIS_SAMPAH,
+                                Routes.routeJenisSampah,
                                 arguments: controller.dataKatalog[index]['id'],
                                 parameters: {
                                   'name': controller.dataKatalog[index]['name']
@@ -329,7 +329,7 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                   child: CachedNetworkImage(
                                     imageUrl:
-                                        "${Routes.BASE_URL}/${controller.articles[index].aFile}",
+                                        "${Routes.baseUrl}/${controller.articles[index].aFile}",
                                     height: 100.h,
                                     width: 200.w,
                                     fit: BoxFit.cover,

@@ -6,7 +6,7 @@ import '../../../routes/app_pages.dart';
 class HistoryProvider extends GetConnect {
   Future<List<HistoryModel>> getHistory(String token) async {
     final response = await get(
-      "${Routes.BASE_URL}/api/request/nasabah",
+      "${Routes.baseUrl}/api/request/nasabah",
       headers: {
         'token': token,
       },

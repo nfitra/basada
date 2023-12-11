@@ -50,8 +50,8 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    "Saldo Rp." +
-                        controller.profileData.value.nBalance.toString(),
+                    "Saldo Rp.${controller.profileData.value.nBalance.toString()}"
+                        ,
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -68,7 +68,7 @@ class ProfileView extends GetView<ProfileController> {
                 children: [
                   const SizedBox(height: 20),
                   GestureDetector(
-                    onTap: () => Get.toNamed(Routes.EDIT_PROFILE,
+                    onTap: () => Get.toNamed(Routes.routeEditProfile,
                         arguments: controller.profileData.value),
                     child: Row(
                       children: const [

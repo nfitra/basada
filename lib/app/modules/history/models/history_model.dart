@@ -34,7 +34,7 @@ class HistoryModel {
     jenisSampah = json['jenis_sampah'];
     namaAdmin = json['nama_admin'];
     namaNasabah = json['nama_nasabah'];
-    rWeight = json['r_weight'];
+    rWeight = json['rWeight'];
     rImage = json['r_image'];
     rNotes = json['r_notes'];
     rPickupDate = json['r_pickup_date'];
@@ -51,7 +51,7 @@ class HistoryModel {
     data['jenis_sampah'] = jenisSampah;
     data['nama_admin'] = namaAdmin;
     data['nama_nasabah'] = namaNasabah;
-    data['r_weight'] = rWeight;
+    data['rWeight'] = rWeight;
     data['r_image'] = rImage;
     data['r_notes'] = rNotes;
     data['r_pickup_date'] = rPickupDate;

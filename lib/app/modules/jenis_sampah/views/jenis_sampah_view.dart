@@ -28,7 +28,7 @@ class JenisSampahView extends GetView<JenisSampahController> {
             return GestureDetector(
               onTap: () {
                 if (controller.isKatalog) {
-                  Get.toNamed(Routes.FORM_JUAL, arguments: [
+                  Get.toNamed(Routes.routeFormJual, arguments: [
                     controller.jenisSampah[index].sId,
                     controller.idKategori,
                     controller.jenisSampah[index].jName,
@@ -44,7 +44,7 @@ class JenisSampahView extends GetView<JenisSampahController> {
                       height: 200.h,
                       width: double.infinity,
                       child: Image.network(
-                        "${Routes.BASE_URL}/${controller.jenisSampah[index].jImage}",
+                        "${Routes.baseUrl}/${controller.jenisSampah[index].jImage}",
                         fit: BoxFit.cover,
                       ),
                     ),

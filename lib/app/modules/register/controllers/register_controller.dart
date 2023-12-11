@@ -50,8 +50,8 @@ class RegisterController extends GetxController with StateMixin {
       await RegisterProvider().register(email, password).then(
         (value) {
           change(value, status: RxStatus.success());
-          box.write(Routes.REGISTER_TOKEN, value.data?.token);
-          Get.offNamed(Routes.REGISTER_NEXT);
+          box.write(Routes.registerToken, value.data?.token);
+          Get.offNamed(Routes.routeRegisterNext);
           successSnackBar('Silahkan lengkapi data diri anda');
         },
         onError: (error) {

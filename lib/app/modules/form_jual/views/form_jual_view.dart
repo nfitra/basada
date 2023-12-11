@@ -606,7 +606,7 @@ class FormJualView extends GetView<FormJualController> {
   }
 
   Future<void> _selectPlace() async {
-    final result = await Get.toNamed(Routes.SEARCHMAP);
+    final result = await Get.toNamed(Routes.routeSearchMap);
     controller.latlng.value = result[0].toString();
     controller.geometry = result[1] as LatLng;
   }

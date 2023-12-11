@@ -17,12 +17,12 @@ class JadwalModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['s_day'] = this.sDay;
-    data['s_time'] = this.sTime;
-    data['s_weather'] = this.sWeather;
-    data['s_weather_icon'] = this.sWeatherIcon;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['s_day'] = sDay;
+    data['s_time'] = sTime;
+    data['s_weather'] = sWeather;
+    data['s_weather_icon'] = sWeatherIcon;
     return data;
   }
 }

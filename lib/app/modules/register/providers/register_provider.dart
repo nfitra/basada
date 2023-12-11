@@ -6,7 +6,7 @@ import '../../../routes/app_pages.dart';
 class RegisterProvider extends GetConnect {
   Future<ResgisterModel> register(String email, String password) async {
     final response = await post(
-      "${Routes.BASE_URL}/api/signup",
+      "${Routes.baseUrl}/api/signup",
       {
         "email": email,
         "password": password,

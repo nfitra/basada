@@ -9,7 +9,7 @@ class FormJualProvider {
   final dio = Dio();
   Future<List<JadwalModel>> getJadwal(String token) async {
     final response = await dio.get(
-      '${Routes.BASE_URL}/api/jadwal',
+      '${Routes.baseUrl}/api/jadwal',
       options: Options(
         headers: {
           'token': token,
@@ -29,7 +29,7 @@ class FormJualProvider {
 
   Future<List<AdminModel>> getAdmin(String token) async {
     final response = await dio.get(
-      '${Routes.BASE_URL}/api/admin',
+      '${Routes.baseUrl}/api/admin',
       options: Options(
         headers: {
           'token': token,
@@ -47,27 +47,27 @@ class FormJualProvider {
 
   Future<String> requestPenjemputanSampah(
       File image,
-      String fk_garbage,
+      String fkGarbage,
       String lat,
       String long,
-      String r_weight,
-      String fk_jadwal,
-      String fk_admin,
+      String rWeight,
+      String fkJadwal,
+      String fkAdmin,
       String token) async {
     String fileName = image.path.split('/').last;
     FormData formData = FormData.fromMap({
-      "fk_garbage": fk_garbage,
+      "fkGarbage": fkGarbage,
       "lat": lat,
       "long": long,
-      "r_weight": r_weight,
-      "fk_jadwal": fk_jadwal,
-      "fk_admin": fk_admin,
+      "rWeight": rWeight,
+      "fkJadwal": fkJadwal,
+      "fkAdmin": fkAdmin,
       "r_image": await MultipartFile.fromFile(image.path, filename: fileName),
     });
 
     final response = await dio
         .post(
-          '${Routes.BASE_URL}/api/request',
+          '${Routes.baseUrl}/api/request',
           data: formData,
           options: Options(
             headers: {

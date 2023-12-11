@@ -73,8 +73,8 @@ class HomeController extends GetxController with StateMixin {
   }
 
   void logout() {
-    box.remove(Routes.TOKEN);
-    Get.offAllNamed(Routes.LOGIN);
+    box.remove(Routes.token);
+    Get.offAllNamed(Routes.routeLogin);
   }
 
   Future<void> launchUrlString(String url) async {

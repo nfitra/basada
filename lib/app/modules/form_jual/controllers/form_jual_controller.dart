@@ -69,7 +69,7 @@ class FormJualController extends GetxController with StateMixin {
 
   Future<void> getJadwal() async {
     change(null, status: RxStatus.loading());
-    FormJualProvider().getJadwal(box.read(Routes.TOKEN)).then(
+    FormJualProvider().getJadwal(box.read(Routes.token)).then(
       (value) {
         jadwalPenjemputan.assignAll(value);
         selectedJadwalId.value = jadwalPenjemputan[0].sId.toString();
@@ -86,7 +86,7 @@ class FormJualController extends GetxController with StateMixin {
 
   Future<void> getAdmin() async {
     change(null, status: RxStatus.loading());
-    FormJualProvider().getAdmin(box.read(Routes.TOKEN)).then(
+    FormJualProvider().getAdmin(box.read(Routes.token)).then(
       (value) {
         admin.assignAll(value);
         selectedAdminId.value = value[0].sId.toString();
@@ -102,22 +102,22 @@ class FormJualController extends GetxController with StateMixin {
 
   Future<void> jualSampah(
     File image,
-    String fk_garbage,
+    String fkGarbage,
     String lat,
     String long,
-    String r_weight,
-    String fk_jadwal,
-    String fk_admin,
+    String rWeight,
+    String fkJadwal,
+    String fkAdmin,
   ) async {
     change(null, status: RxStatus.loading());
     FormJualProvider()
-        .requestPenjemputanSampah(image, fk_garbage, lat, long, r_weight,
-            fk_jadwal, fk_admin, box.read(Routes.TOKEN))
+        .requestPenjemputanSampah(image, fkGarbage, lat, long, rWeight,
+            fkJadwal, fkAdmin, box.read(Routes.token))
         .then(
       (value) {
         change(value, status: RxStatus.success());
         successSnackBar("Berhasil mengajukan penjemputan sampah!");
-        Get.offAllNamed(Routes.HOME);
+        Get.offAllNamed(Routes.routeHome);
       },
     ).catchError(
       (err) {

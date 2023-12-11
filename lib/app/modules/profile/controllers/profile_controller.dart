@@ -40,12 +40,12 @@ class ProfileController extends GetxController with StateMixin {
 
   void logout() {
     LoginProvider()
-        .deleteDevice(box.read(Routes.TOKEN), box.read('id_device').toString())
+        .deleteDevice(box.read(Routes.token), box.read('id_device').toString())
         .then((value) {
-      box.remove(Routes.USER_ID);
-      box.remove(Routes.ROLE);
-      box.remove(Routes.TOKEN);
-      Get.offAllNamed(Routes.LOGIN);
+      box.remove(Routes.userId);
+      box.remove(Routes.role);
+      box.remove(Routes.token);
+      Get.offAllNamed(Routes.routeLogin);
     });
   }
 }

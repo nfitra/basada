@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-errorSnackBar(String error, {String title = 'Error'}) {
+void errorSnackBar(String error, {String title = 'Error'}) {
   Get.snackbar(
     title,
     error,
@@ -15,7 +15,7 @@ errorSnackBar(String error, {String title = 'Error'}) {
   );
 }
 
-successSnackBar(String message, {String title = 'Success'}) {
+void successSnackBar(String message, {String title = 'Success'}) {
   Get.snackbar(
     title,
     message,

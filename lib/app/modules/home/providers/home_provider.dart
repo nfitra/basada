@@ -9,7 +9,7 @@ class HomeProvider extends GetConnect {
 
   Future<List<ArticleModel>> getArticle(String token) async {
     final response = await get(
-      '${Routes.BASE_URL}/api/artikel',
+      '${Routes.baseUrl}/api/artikel',
       headers: {
         'token': token,
       },
@@ -27,7 +27,7 @@ class HomeProvider extends GetConnect {
       'registration_id': registrationId,
     });
     final response = await _dio.post(
-      '${Routes.BASE_URL}/api/device',
+      '${Routes.baseUrl}/api/device',
       data: formData,
       options: dio.Options(
         headers: {

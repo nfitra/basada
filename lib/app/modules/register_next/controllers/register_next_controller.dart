@@ -60,7 +60,7 @@ class RegisterNextController extends GetxController with StateMixin {
     } else {
       await RegisterNextProvider()
           .updateProfile(
-        box.read(Routes.REGISTER_TOKEN),
+        box.read(Routes.registerToken),
         name,
         dateOfBirth,
         address,
@@ -73,8 +73,8 @@ class RegisterNextController extends GetxController with StateMixin {
         (value) {
           change(value, status: RxStatus.success());
           successSnackBar('Register Success');
-          box.remove(Routes.REGISTER_TOKEN);
-          Get.offAllNamed(Routes.LOGIN);
+          box.remove(Routes.registerToken);
+          Get.offAllNamed(Routes.routeLogin);
         },
         onError: (error) {
           change(null, status: RxStatus.error(error.toString()));

@@ -43,7 +43,7 @@ void main() async {
       designSize: const Size(414, 896),
       builder: (_, __) => GetMaterialApp(
         title: "Application",
-        initialRoute: box.hasData(Routes.TOKEN) ? Routes.HOME : Routes.LOGIN,
+        initialRoute: box.hasData(Routes.token) ? Routes.routeHome : Routes.routeLogin,
         debugShowCheckedModeBanner: false,
         getPages: AppPages.routes,
         theme: ThemeData(

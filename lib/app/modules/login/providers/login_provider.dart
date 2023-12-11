@@ -10,7 +10,7 @@ class LoginProvider extends GetConnect {
 
   Future<LoginModel> login(String email, String password) async {
     final response = await post(
-      "${Routes.BASE_URL}/api/login",
+      "${Routes.baseUrl}/api/login",
       {
         "email": email,
         "password": password,
@@ -28,7 +28,7 @@ class LoginProvider extends GetConnect {
       'registration_id': registrationId,
     });
     final response = await _dio.post(
-      '${Routes.BASE_URL}/api/device',
+      '${Routes.baseUrl}/api/device',
       data: formData,
       options: dio.Options(
         headers: {
@@ -46,7 +46,7 @@ class LoginProvider extends GetConnect {
 
   Future<String> deleteDevice(String token, String idDevice) async {
     final response = await _dio.delete(
-      '${Routes.BASE_URL}/api/device/$idDevice',
+      '${Routes.baseUrl}/api/device/$idDevice',
       options: dio.Options(
         headers: {
           'token': token,

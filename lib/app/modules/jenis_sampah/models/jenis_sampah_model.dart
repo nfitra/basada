@@ -27,14 +27,14 @@ class JenisSampahModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['j_name'] = this.jName;
-    data['j_price'] = this.jPrice;
-    data['harga_pelapak'] = this.hargaPelapak;
-    data['satuan'] = this.satuan;
-    data['j_image'] = this.jImage;
-    data['fk_kategori'] = this.fkKategori;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['j_name'] = jName;
+    data['j_price'] = jPrice;
+    data['harga_pelapak'] = hargaPelapak;
+    data['satuan'] = satuan;
+    data['j_image'] = jImage;
+    data['fk_kategori'] = fkKategori;
     return data;
   }
 }

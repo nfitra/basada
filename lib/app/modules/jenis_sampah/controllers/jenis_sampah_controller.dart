@@ -29,15 +29,5 @@ class JenisSampahController extends GetxController with StateMixin {
     });
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
   void increment() => count.value++;
 }

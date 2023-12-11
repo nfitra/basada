@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/edit_profile_controller.dart';
+import '../../../utils/profile_form_row.dart';
 
 class EditProfileView extends GetView<EditProfileController> {
   const EditProfileView({Key? key}) : super(key: key);
@@ -52,185 +53,37 @@ class EditProfileView extends GetView<EditProfileController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Row(
-                        children: [
-                          const Spacer(),
-                          Expanded(
-                            flex: 8,
-                            child: Form(
-                              child: Column(
-                                children: [
-                                  TextFormField(
-                                    keyboardType: TextInputType.emailAddress,
-                                    textInputAction: TextInputAction.next,
-                                    cursorColor: const Color(0xff3A7E04),
-                                    controller: controller.txtNamaController,
-                                    decoration: const InputDecoration(
-                                      hintText: "Nama Lengkap",
-                                      prefixIcon: Padding(
-                                        padding: EdgeInsets.all(16.0),
-                                        child: Icon(Icons.person),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 16.0),
-                                  TextFormField(
-                                    textInputAction: TextInputAction.done,
-                                    controller:
-                                        controller.txtdateOfBirthController,
-                                    cursorColor: const Color(0xff3A7E04),
-                                    decoration: const InputDecoration(
-                                      hintText: "Tanggal Lahir",
-                                      prefixIcon: Padding(
-                                        padding: EdgeInsets.all(16.0),
-                                        child: Icon(Icons.lock),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 16.0),
-                                  TextFormField(
-                                    textInputAction: TextInputAction.done,
-                                    controller: controller.txtAddressController,
-                                    cursorColor: const Color(0xff3A7E04),
-                                    decoration: const InputDecoration(
-                                      hintText: "Alamat",
-                                      prefixIcon: Padding(
-                                        padding: EdgeInsets.all(16.0),
-                                        child: Icon(Icons.lock),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 16.0),
-                                  TextFormField(
-                                    textInputAction: TextInputAction.done,
-                                    controller:
-                                        controller.txtProvinceController,
-                                    cursorColor: const Color(0xff3A7E04),
-                                    decoration: const InputDecoration(
-                                      hintText: "Provinsi",
-                                      prefixIcon: Padding(
-                                        padding: EdgeInsets.all(16.0),
-                                        child: Icon(Icons.lock),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 16.0),
-                                  TextFormField(
-                                    textInputAction: TextInputAction.done,
-                                    controller: controller.txtCityController,
-                                    cursorColor: const Color(0xff3A7E04),
-                                    decoration: const InputDecoration(
-                                      hintText: "Kota",
-                                      prefixIcon: Padding(
-                                        padding: EdgeInsets.all(16.0),
-                                        child: Icon(Icons.lock),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 16.0),
-                                  TextFormField(
-                                    textInputAction: TextInputAction.done,
-                                    controller:
-                                        controller.txtPostalCodeController,
-                                    cursorColor: const Color(0xff3A7E04),
-                                    decoration: const InputDecoration(
-                                      hintText: "Kode Pos",
-                                      prefixIcon: Padding(
-                                        padding: EdgeInsets.all(16.0),
-                                        child: Icon(Icons.lock),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 16.0),
-                                  TextFormField(
-                                    textInputAction: TextInputAction.done,
-                                    controller: controller.txtPhoneController,
-                                    cursorColor: const Color(0xff3A7E04),
-                                    decoration: const InputDecoration(
-                                      hintText: "Telepon",
-                                      prefixIcon: Padding(
-                                        padding: EdgeInsets.all(16.0),
-                                        child: Icon(Icons.lock),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 16.0),
-                                  controller.obx(
-                                    (state) => buildButton(
-                                      controller.txtNamaController.text,
-                                      controller.txtdateOfBirthController.text,
-                                      controller.txtAddressController.text,
-                                      controller.txtProvinceController.text,
-                                      controller.txtCityController.text,
-                                      controller.txtPostalCodeController.text,
-                                      controller.txtPhoneController.text,
-                                    ),
-                                    onLoading: const Center(
-                                      child: CircularProgressIndicator(),
-                                    ),
-                                    onError: (error) => buildButton(
-                                      controller.txtNamaController.text,
-                                      controller.txtdateOfBirthController.text,
-                                      controller.txtAddressController.text,
-                                      controller.txtProvinceController.text,
-                                      controller.txtCityController.text,
-                                      controller.txtPostalCodeController.text,
-                                      controller.txtPhoneController.text,
-                                    ),
-                                    onEmpty: buildButton(
-                                      controller.txtNamaController.text,
-                                      controller.txtdateOfBirthController.text,
-                                      controller.txtAddressController.text,
-                                      controller.txtProvinceController.text,
-                                      controller.txtCityController.text,
-                                      controller.txtPostalCodeController.text,
-                                      controller.txtPhoneController.text,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 16.0),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const Spacer(),
-                        ],
+                      ProfileFormRow(
+                        namaController: controller.txtNamaController,
+                        dateOfBirthController:
+                            controller.txtdateOfBirthController,
+                        addressController: controller.txtAddressController,
+                        provinceController: controller.txtProvinceController,
+                        cityController: controller.txtCityController,
+                        postalCodeController:
+                            controller.txtPostalCodeController,
+                        phoneController: controller.txtPhoneController,
+                        onButtonPressed: (nama, dateOfBirth, address, province,
+                            city, postalCode, phone) {
+                          controller.registerNext(nama, dateOfBirth, address,
+                              province, city, postalCode, phone);
+                        },
                       ),
+                      controller.obx(
+                          (state) =>
+                              const Center(child: CircularProgressIndicator()),
+                          onLoading:
+                              const Center(child: CircularProgressIndicator()),
+                          onError: (error) {
+                        // Handle error here
+                        return const Text("Terjadi Kesalahan");
+                      }, onEmpty: Text("Isi Form !")),
                     ],
                   ),
                 ),
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget buildButton(
-    String name,
-    String dateOfBirth,
-    String address,
-    String province,
-    String city,
-    String postalCode,
-    String phoneNumber,
-  ) {
-    return Hero(
-      tag: "login_btn",
-      child: ElevatedButton(
-        onPressed: () {
-          controller.registerNext(
-            name,
-            dateOfBirth,
-            address,
-            province,
-            city,
-            postalCode,
-            phoneNumber,
-          );
-        },
-        child: Text(
-          "Selesai".toUpperCase(),
         ),
       ),
     );
